@@ -1,4 +1,4 @@
-<?php get_template_part('templates/partials/header'); ?>
+<?php include(get_template_part_acf('templates/partials/header')); ?>
 
 <div class="wrapper">
     <div class="container">
@@ -17,4 +17,4 @@
 
     </div>
 </div>
-<?php get_template_part('templates/partials/footer'); ?>
+<?php include(get_template_part_acf('templates/partials/footer')); ?>

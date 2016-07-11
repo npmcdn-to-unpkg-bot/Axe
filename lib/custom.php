@@ -33,3 +33,27 @@ if(function_exists('acf_add_options_page')) {
     acf_add_options_page();
     acf_add_options_sub_page('General Settings');
 }
+
+function get_template_part_acf($slug, $name = null)
+{
+    $templates = array();
+    $name = (string)$name;
+    if ('' !== $name) {
+        $templates[] = "{$slug}-{$name}.php";
+    }
+
+    $templates[] = "{$slug}.php";
+
+    $located = '';
+    foreach ((array)$templates as $template_name) {
+        if (!$template_name) {
+            continue;
+        }
+        if (file_exists(TEMPLATEPATH . '/' . $template_name)) {
+            $located = TEMPLATEPATH . '/' . $template_name;
+            break;
+        }
+    }
+
+    return $located;
+}

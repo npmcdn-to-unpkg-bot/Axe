@@ -1,5 +1,5 @@
 <?
-get_template_part('templates/partials/header');
+include(get_template_part_acf('templates/partials/header'));
 
 $cat = get_query_var('cat');
 $yourcat = get_category ($cat); ?>
@@ -14,17 +14,17 @@ $yourcat = get_category ($cat); ?>
     <div class="container">
         <section id="post-caegory">
             <? if ( have_posts() ):
-                get_template_part( 'templates/loop','post' ); ?>
+                include(get_template_part_acf( 'templates/loop','post' )); ?>
 
                 <div class="text-center">
                     <? axe_paging_nav() ?>
                 </div>
             <? else:
-                get_template_part( 'templates/content', 'none' );
+                include(get_template_part_acf( 'templates/content', 'none' ));
             endif; ?>
         </section>
     </div>
 </div>
 
 
-<? get_template_part('templates/partials/footer');
+<? include(get_template_part_acf('templates/partials/footer'));

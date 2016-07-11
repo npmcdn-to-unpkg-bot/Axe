@@ -1,5 +1,5 @@
 <?
-get_template_part('templates/partials/header');
+include(get_template_part_acf('templates/partials/header'));
 
 $term_id = get_query_var('tag_id');
 $taxonomy = 'post_tag';
@@ -12,15 +12,15 @@ $terms = get_terms( $taxonomy, $args ); ?>
 
 <section id="post-blog">
     <? if ( have_posts() ):
-    get_template_part( 'templates/loop','post' ); ?>
+    include(get_template_part_acf( 'templates/loop','post' )); ?>
 
     <div class="center pagination">
         <?= get_previous_posts_link( ); ?>
         <?= get_next_posts_link( ); ?>
     </div>
     <? else:
-        get_template_part( 'templates/content', 'none' );
+        include(get_template_part_acf( 'templates/content', 'none' ));
     endif; ?>
 </section>
 
-<? get_template_part('templates/partials/footer');
+<? include(get_template_part_acf('templates/partials/footer'));
